@@ -1,0 +1,12 @@
+rule WannaCry_Ransomware {
+    strings:
+        $x1 = "WANACRY!"
+        $x2 = "version=\"6.0.0.0\""
+        $x3 = "publicKeyToken=\"6595b64144ccf1df\""
+        $x4 = "WNcry@2ol7"
+        $x5 = "- unzip 0.15 Copyright 1998 Gilles Vollant"
+        $x6 = "inflate 1.1.3 Copyright 1995-1998 Mark Adler"
+        $x7 = "Microsoft Enhanced RSA and AES Cryptographic Provider"
+    condition:
+        $x1 and $x2 and $x3 and $x4 and $x5 and $x6 and $x7
+}
